@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
 import {ProgressBarComponent} from './progress-bar/progress-bar.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -9,7 +9,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {FormsModule} from '@angular/forms';
 import {TabComponent} from './tab/tab.component';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import {ClipBoardComponent} from './clip-board/clip-board.component';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 
 @Component({
@@ -19,12 +20,14 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatButtonModule,
     ProgressBarComponent,
     MatProgressSpinnerModule,
-  ProgressSpinnerComponent,
-  ButtonComponent,
-  MatButtonToggleModule,
-  FormsModule,
-  TabComponent,
-  MatTabsModule],
+    ProgressSpinnerComponent,
+    ButtonComponent,
+    MatButtonToggleModule,
+    FormsModule,
+    TabComponent,
+    MatTabsModule,
+    ClipboardModule,
+    ClipBoardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
