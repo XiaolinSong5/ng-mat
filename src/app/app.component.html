@@ -13,6 +13,40 @@
 <app-tab></app-tab>
 <app-clip-board></app-clip-board>
 
+<mat-form-field apearance="standard">
+<mat-label>Filter table</mat-label>
+  <input matInput placeholder="search"/>
+</mat-form-field>
+<div>
+  <table mat-table matSort>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td mat-cell>This is Id</td>
+    </ng-container>
+
+    <ng-container matColumnDef="userId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>User Id</th>
+      <td mat-cell>This is User Id</td>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>title</th>
+      <td mat-cell>This is title</td>
+    </ng-container>
+
+    <ng-container matColumnDef="body">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>body</th>
+      <td mat-cell>This is body</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumn"></tr>
+
+  </table>
+
+
+</div>
+
 
 
 

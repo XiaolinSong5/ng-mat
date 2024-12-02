@@ -11,6 +11,13 @@ import {TabComponent} from './tab/tab.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {ClipBoardComponent} from './clip-board/clip-board.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import {HttpClientModule} from '@angular/common/http';
+import {TableService} from './table.service';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 
 @Component({
@@ -27,10 +34,24 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
     TabComponent,
     MatTabsModule,
     ClipboardModule,
-    ClipBoardComponent],
+    ClipBoardComponent,
+  HttpClientModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatFormFieldModule,
+  MatInputModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'ng-mat';
+  titleData = "data-table";
+  displayedColumn: string [] = ['id', 'userId', 'title', 'body' ];
+  constructor(private service: TableService) {
+    this.service.getData()
+      .subscribe(data => {
+        console.log("data from service:" , data);
+      });
+  }
 }
