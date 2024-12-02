@@ -7,6 +7,8 @@ import {ProgressSpinnerComponent} from './progress-spinner/progress-spinner.comp
 import {ButtonComponent} from './button/button.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {FormsModule} from '@angular/forms';
+import {TabComponent} from './tab/tab.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
@@ -20,7 +22,9 @@ import {FormsModule} from '@angular/forms';
   ProgressSpinnerComponent,
   ButtonComponent,
   MatButtonToggleModule,
-  FormsModule],
+  FormsModule,
+  TabComponent,
+  MatTabsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
