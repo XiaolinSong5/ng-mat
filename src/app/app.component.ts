@@ -50,11 +50,15 @@ export class AppComponent {
   titleData = "data-table";
   displayedColumn: string [] = ['id', 'userId', 'title', 'body' ];
   dataSource= new MatTableDataSource<UserData>();
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
   constructor(private service: TableService) {
     this.service.getData()
       .subscribe(data => {
         console.log("data from service:" , data);
         this.dataSource.data = data;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       });
 
   }
