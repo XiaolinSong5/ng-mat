@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
 import {ProgressBarComponent} from './progress-bar/progress-bar.component';
@@ -13,11 +13,12 @@ import {ClipBoardComponent} from './clip-board/clip-board.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import {HttpClientModule} from '@angular/common/http';
 import {TableService} from './table.service';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {UserData} from '../user-data';
 
 
 @Component({
@@ -48,10 +49,13 @@ export class AppComponent {
   title = 'ng-mat';
   titleData = "data-table";
   displayedColumn: string [] = ['id', 'userId', 'title', 'body' ];
+  dataSource= new MatTableDataSource<UserData>();
   constructor(private service: TableService) {
     this.service.getData()
       .subscribe(data => {
         console.log("data from service:" , data);
+        this.dataSource.data = data;
       });
+
   }
 }
