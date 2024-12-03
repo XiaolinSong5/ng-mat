@@ -15,9 +15,9 @@
 
 <mat-form-field apearance="standard">
 <mat-label>Filter table</mat-label>
-  <input matInput placeholder="search"/>
+  <input matInput placeholder="" search (keyup) = "applyFilter($event)" #input/>
 </mat-form-field>
-<div>
+<div class="mat-elevation-z8">
   <table mat-table matSort [dataSource]="dataSource">
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
@@ -41,6 +41,10 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumn"></tr>
+    <tr *matNoDataRow>
+      <td class="mat-cell" colspan="4">The filter does not match any data for this text {{input.value}}</td>
+
+    </tr>
 
   </table>
 
